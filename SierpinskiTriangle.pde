@@ -3,7 +3,7 @@ public void setup(){
   noFill();
 }
 public void draw(){
-  sierpinski(256,256,128);
+  sierpinski(0,height,512);
 }
 /* optional */
 public void mouseDragged(){
@@ -14,8 +14,8 @@ public void sierpinski(int x, int y, int len){
   int len_div_2 = (len>>1);
   if(len>=MIN_LEN){
     triangle(x,y,x+(len_div_2>>1),y-len_div_2,x+len_div_2,y);
-    
     sierpinski(x+(len_div_2>>1),y,len_div_2);
-    //sierpinski(x+(    
+    sierpinski(x+(len_div_2>>2),y-(len_div_2>>1),len_div_2);
+    sierpinski(x,y,len_div_2);
   }
 }
